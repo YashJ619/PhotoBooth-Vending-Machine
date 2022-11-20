@@ -1,0 +1,53 @@
+
+                        if current_sample > 0 :
+                                current_sample = current_sample - 1
+                                avg = avg + value
+                                #print(value,end='x')
+                                #print(avg,end='x')
+                                #print(samples)
+                        else :
+                                current_sample = maxsample
+                                avg = avg / divisor
+                                print("Avg",end='')
+                                print(avg)
+                                trigger(avg,level)
+                                avg = 0
+
+
+
+                if up > 25:
+                    up = 0
+                    current_sample = maxsample
+                    avg = avg / divisor
+                    if avg > 0 :
+                        print("AvgUP",end='')
+                        print(avg)
+                    avg = 0
+
+
+
+
+
+
+if value > 0.0 :
+                    if current_sample < maxsample :
+                        current_sample = current_sample + 1
+                        avg = avg + value
+                    else :
+                        avg = avg / divisor
+                        print("AvgUp",end='')
+                        print(avg)
+                        current_sample = 0
+                        avg = 0
+                elif current_sample > 0:
+                    if current_sample < maxsample:
+                        current_sample = current_sample + 1
+                    else:
+                        if (avg / divisor) > 10.0:
+                                avg = avg / divisor
+                                print("AvgDown",end='')
+                                print(avg)
+                        current_sample = 0
+                        avg = 0
+        except:
+                print("#Covertion Error",end='')
